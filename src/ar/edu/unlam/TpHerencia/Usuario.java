@@ -1,6 +1,6 @@
 package ar.edu.unlam.TpHerencia;
 
-public class Usuario {
+public class Usuario implements Caminador {
 	private String nombre = " ";
 	private Integer edad ;
 	private Double peso ;
@@ -45,6 +45,20 @@ public class Usuario {
 
 	public void setAltura(Double altura) {
 		this.altura = altura;
+	}
+
+
+	@Override
+	public void calcularTiempoTranscurrido() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void calcularDistanciaTranscurrida() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

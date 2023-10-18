@@ -43,6 +43,11 @@ public class Reloj {
 	public void setZona(Frecuencia zona) {
 		this.zona = zona;
 	}
+
+	public void activarPasos() {
+		p
+		
+	}
 	
 	
 
