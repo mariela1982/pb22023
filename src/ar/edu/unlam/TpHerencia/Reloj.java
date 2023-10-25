@@ -45,7 +45,7 @@ public class Reloj {
 	}
 
 	public void activarPasos() {
-		p
+		
 		
 	}
 	

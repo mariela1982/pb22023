@@ -27,7 +27,6 @@ public class TestSistema {
 		
 		assertTrue(nuevo.ingresarUsuario(nuevoUsuario));
 		
-		assertNotNull(nuevo);
 		
 	}
 	
