@@ -2,7 +2,7 @@ package ar.edu.unlam.SistemaSeguro;
 
 import java.util.TreeSet;
 
-public class Sistema implements Comparable<Usuario> {
+public class Sistema  {
 	
 	private String nombre ="";
 	private  TreeSet<Usuario> usuario;
@@ -37,11 +37,6 @@ public class Sistema implements Comparable<Usuario> {
 		this.usuario = usuario;
 	}
 
-	@Override
-	public int compareTo(Usuario o) {
-	 
-		return 0;
-	}
 	
 	
 

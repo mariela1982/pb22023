@@ -19,4 +19,11 @@ public class UsuarioBasico extends Usuario implements Bloqueable,Eliminable{
 		return false;
 	}
 
+	@Override
+	public Boolean bloquearUsuario(UsuarioBasico nombre) {
+		
+		
+		return null;
+	}
+
 }
