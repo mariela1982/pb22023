@@ -9,7 +9,7 @@ public class Sistema  {
 
 	public Sistema(String nombre) {
 		this.setNombre(nombre);
-		setUsuario(new TreeSet<>());
+		usuario = new TreeSet<>();
 	}
 
 	public String getNombre() {
@@ -20,21 +20,35 @@ public class Sistema  {
 		this.nombre = nombre;
 	}
 
-	public boolean ingresarUsuario(Usuario nuevoUsuario) {
-		    int i = usuario.size();
-			usuario.add(nuevoUsuario);
-			if (i == usuario.size()) {
-				return false;
-			}
-			return true;
-	}
-
-	public TreeSet<Usuario> getUsuario() {
+	public TreeSet<Usuario> getUsuarioNuevo() {
 		return usuario;
 	}
 
-	public void setUsuario(TreeSet<Usuario> usuario) {
-		this.usuario = usuario;
+	public void setUsuarioNuevo(Usuario usuarioNuevo) {
+		this.usuario.add(usuarioNuevo);
+	}
+
+	public Boolean bloquearUsuario(Usuario nuevo) {
+		if(nuevo instanceof Bloqueable ) {
+			((UsuarioBasico)nuevo).esbloqueable(true);
+			return true;
+			
+		} return false;
+		
+		
+	}
+
+	public void ingresarContraseña(Usuario nuevo, String contraseñaIncorrecta) {
+		
+		for (Usuario actual : usuario) {
+			if (actual.getContraseña() != contraseñaIncorrecta && intentos<4) {
+				intentos++;
+				
+			}
+			
+			
+		} 
+		
 	}
 
 	

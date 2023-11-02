@@ -5,10 +5,13 @@ import java.util.Objects;
 public abstract class  Usuario {
 	private String nombre = "";
 	private String contraseña = "";
+	@SuppressWarnings("unused")
+	private Integer intentos;
 	
 
 	public Usuario(String nombre) {
 		this.setNombre(nombre);
+		this.intentos = 0;
 		
 	}
 
@@ -28,10 +31,12 @@ public abstract class  Usuario {
 		this.contraseña = contraseña;
 	}
 	
-	public abstract void ingresarContraseña(String contraseña);
+	
 
-	protected abstract boolean crearContraseña(String contraseña2);
+	protected abstract boolean crearContraseña(String contraseña)throws InvalidPasswordException;
 
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(nombre);

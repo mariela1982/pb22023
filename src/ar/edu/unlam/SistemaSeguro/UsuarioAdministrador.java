@@ -7,16 +7,17 @@ public class UsuarioAdministrador extends Usuario {
 		
 	}
 
-	@Override
-	public void ingresarContraseña(String contraseña) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
-	protected boolean crearContraseña(String contraseña2) {
-		// TODO Auto-generated method stub
-		return false;
+	protected boolean crearContraseña(String contraseña) throws InvalidPasswordException {
+			if ( contraseña.matches(".*[a-z].*")&& contraseña.matches(".*[A-Z].*")&& contraseña.matches(".*[0-9].*")) {
+				
+				this.setContraseña(contraseña);
+						return true;
+					} else {
+						throw new InvalidPasswordException();
+					}
 	}
 
 }

@@ -31,13 +31,41 @@ public class TestSistema {
 	}
 	
 	@Test
-	public void queSePuedaCrearUnaContraseñaDeUnUsuarioBasico() {
+	public void queSePuedaCrearUnaContraseñaDeUnUsuarioBasico() throws InvalidPasswordException {
 		String nombre = "mariela";
-		String contraseña = "1Mariela";
+		String contraseña = "1Mariela1";
 		Usuario nuevo = new UsuarioBasico(nombre);
 		assertTrue(nuevo.crearContraseña(contraseña));
-		
 		assertNotNull(nuevo);
+		}
+	
+	@Test
+	public void queSePuedaCrearUnaContraseñaDeUnUsuarioAdministrador() throws InvalidPasswordException {
+		String nombre = "mariela";
+		String contraseña = "1Mariela1";
+		Usuario nuevo = new UsuarioAdministrador(nombre);
+		assertTrue(nuevo.crearContraseña(contraseña));
+		assertNotNull(nuevo);
+		}
+	
+	@Test
+	public void queSePuedaBloquearUnUsuarioBasico() throws InvalidPasswordException {
+		String nombre = "mariela";
+		String contraseña = "1Mariela1";
+		String contraseñaIncorrecta = "1Mariela";
+		String nombreSistema = "SistemaUno";
+		
+		Sistema nuevoSistema = new Sistema(nombreSistema);
+		Usuario nuevo = new UsuarioBasico(nombre);
+		
+		nuevo.crearContraseña(contraseña);
+		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
+		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
+		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
+		assertTrue(nuevoSistema.bloquearUsuario(nuevo));
+		
+		
+		
 		}
 	
 	
