@@ -6,6 +6,7 @@ public class Sistema  {
 	
 	private String nombre ="";
 	private  TreeSet<Usuario> usuario;
+	private Integer intentos = 0;
 
 	public Sistema(String nombre) {
 		this.setNombre(nombre);
@@ -38,17 +39,33 @@ public class Sistema  {
 		
 	}
 
-	public void ingresarContraseña(Usuario nuevo, String contraseñaIncorrecta) {
+	public void login(Usuario nuevo, String contraseña) {
 		
-		for (Usuario actual : usuario) {
-			if (actual.getContraseña() != contraseñaIncorrecta && intentos<4) {
-				intentos++;
-				
+		Usuario actual = buscarUsuario(nuevo);
+		if (actual != null)
+		do {
+			if (actual.getContraseña() != contraseña ) {
+				 intentos++;
+				 ingresarContraseña(contraseña);
 			}
 			
 			
-		} 
+		} while  (intentos<3);
 		
+	}
+
+	private void ingresarContraseña(String contraseña) {
+		
+		
+	}
+
+	private Usuario buscarUsuario(Usuario nuevo) {
+		for(Usuario actual:usuario) {
+			if (actual.getNombre().equals(nuevo.getNombre())) {
+				return nuevo;
+				}
+		}
+		return null;
 	}
 
 	

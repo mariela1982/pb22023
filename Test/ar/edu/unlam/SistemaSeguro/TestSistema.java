@@ -59,9 +59,9 @@ public class TestSistema {
 		Usuario nuevo = new UsuarioBasico(nombre);
 		
 		nuevo.crearContraseña(contraseña);
-		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
-		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
-		nuevoSistema.ingresarContraseña(nuevo,contraseñaIncorrecta);
+		nuevoSistema.login(nuevo,contraseñaIncorrecta);
+		nuevoSistema.ingresarContraseña(contraseñaIncorrecta);
+		nuevoSistema.ingresarContraseña(contraseñaIncorrecta);
 		assertTrue(nuevoSistema.bloquearUsuario(nuevo));
 		
 		
